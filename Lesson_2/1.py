@@ -9,3 +9,66 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+
+def prog():
+    '''
+        решение с помощью рекурсии
+    '''
+    sign = input('введите математический знак ("+", "-", "*", "/"), либо ноль (0) для выхода: ')
+    if sign == '0':
+        return
+    elif sign != '+' and sign != '-' and sign != '*' and sign != '/':
+        print('некорректный математический знак')
+        return prog()
+
+    num_1 = int(input('введите первое число: '))
+    num_2 = int(input('введите второе число: '))
+
+    if sign == '+':
+        result = num_1 + num_2
+    elif sign == '-':
+        result = num_1 - num_2
+    elif sign == '*':
+        result = num_1 * num_2
+    elif sign == '/':
+        if num_2 == 0:
+            print('деление на ноль')
+            return prog()
+        else:
+            result = num_1 / num_2
+
+    print(result)
+    return prog()
+
+
+prog()
+
+# решение с помощью функции
+
+while True:
+    sign = str(input('введите математический знак ("+", "-", "*", "/"), либо ноль (0) для выхода: '))
+
+    if sign == '0':
+        break
+    elif sign != '+' and sign != '-' and sign != '*' and sign != '/':
+        print('некорректный математический знак')
+        continue
+
+    num_1 = int(input('введите первое число: '))
+    num_2 = int(input('введите второе число: '))
+
+    if sign == '+':
+        result = num_1 + num_2
+    elif sign == '-':
+        result = num_1 - num_2
+    elif sign == '*':
+        result = num_1 * num_2
+    elif sign == '/':
+        if num_2 == 0:
+            print('деление на ноль')
+            continue
+        else:
+            result = num_1 / num_2
+    print(result)
+
