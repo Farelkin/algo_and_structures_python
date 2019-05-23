@@ -3,3 +3,32 @@
 натуральных чисел выполняется равенство: 1+2+...+n = n(n+1)/2,
  где n - любое натуральное число.
 """
+
+n = 10
+i, sum1 = 1, 0
+while i <= n:
+    sum1 += i
+    i += 1
+
+sum2 = n * (n + 1) / 2
+
+if sum1 == sum2:
+    print('равеностно верное')
+else:
+    print('равенство неверное')
+
+
+def equal(j, sum3, n):
+    if j <= n:
+        sum3 += j
+        j += 1
+        return equal(j, sum3, n)
+    else:
+        return sum3
+
+
+if equal(0, 0, n) == sum2:
+    print('равеностно верное')
+else:
+    print('равенство неверное')
+

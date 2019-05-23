@@ -6,3 +6,40 @@
 то вывести загаданное число.
 """
 
+import random
+
+n = random.randint(0, 100)
+i = 1
+flag = True
+while i <= 10 and flag:
+    n_user = int(input('введите любое число от 0 до 100: '))
+    if n_user != n:
+        if n_user < n:
+            print('ваше число меньше')
+        else:
+            print('ваше число больше')
+    else:
+        print('поздрвляем! вы угадали число!')
+        flag = False
+    i += 1
+
+
+def game(j, n):
+    n2_user = int(input('введите любое число от 0 до 100: '))
+    if j <= 10:
+        if n2_user != n:
+            if n2_user < n:
+                print('ваше число меньше')
+                j += 1
+                return game(j, n)
+            else:
+                print('ваше число больше')
+                j += 1
+                return game(j, n)
+        else:
+            return print('поздрвляем! вы угадали число!')
+    else:
+        return
+
+
+game(1, n)
